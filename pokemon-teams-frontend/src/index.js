@@ -25,6 +25,7 @@ function buildTrainerCard(trainer) {
   let addPokemonBtn = document.createElement('button')
   addPokemonBtn.innerText = "Add Pokemon"
 
+
   let pokemonUl = document.createElement('ul')
 
   trainer.pokemons.forEach(pokemon => {
@@ -35,6 +36,8 @@ function buildTrainerCard(trainer) {
     let releaseBtn = document.createElement('button')
     releaseBtn.className = "release"
     releaseBtn.innerText = "Release"
+    releaseBtn.addEventListener('click', ()=> console.log('releasing'))
+
     pokemonLi.appendChild(releaseBtn)
     pokemonUl.append(pokemonLi)
   })
