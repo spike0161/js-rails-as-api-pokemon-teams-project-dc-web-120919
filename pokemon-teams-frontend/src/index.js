@@ -22,7 +22,26 @@ function buildTrainerCard(trainer) {
   let trainerName = document.createElement('p')
   trainerName.innerText = trainer.name
 
-  trainerDiv.appendChild(trainerName)
-  mainDiv.appendChild(trainerDiv)
+  let addPokemonBtn = document.createElement('button')
+  addPokemonBtn.innerText = "Add Pokemon"
+
+  let pokemonUl = document.createElement('ul')
+
+  trainer.pokemons.forEach(pokemon => {
+
+    let pokemonLi = document.createElement('li')
+    pokemonLi.innerText = `${pokemon.nickname} (${pokemon.species})` 
+
+    let releaseBtn = document.createElement('button')
+    releaseBtn.className = "release"
+    releaseBtn.innerText = "Release"
+    pokemonLi.appendChild(releaseBtn)
+    pokemonUl.append(pokemonLi)
+  })
+
+ 
+    trainerDiv.append(trainerName,addPokemonBtn, pokemonUl)
+
+    mainDiv.appendChild(trainerDiv)
 
 }
